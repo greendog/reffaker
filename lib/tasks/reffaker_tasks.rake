@@ -10,11 +10,14 @@ namespace :reffaker do
 
     puts "Invoking: bundle exec rake db:migrate --trace"
     `cd #{Rails.root} && bundle exec rake db:migrate --trace`
-    puts "Invoking:  bundle exec rake db:seed --trace ..."
-    `cd #{Rails.root} && bundle exec rake db:seed --trace`
-
+    
     puts "Invoking: Reffaker::Engine.load_seed"
     Reffaker::Engine.load_seed
+    
+    
+    puts "Invoking:  bundle exec rake db:seed --trace ..."
+    `cd #{Rails.root} && bundle exec rake db:seed --trace`
+    
   end
 
   desc 'Refresh databse with samples'
